@@ -1,0 +1,23 @@
+{
+  "name": "Cryptochat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "core.js",
+  "scripts": {
+    "start": "node core.js"
+  },
+  "dependencies": {
+    "socket.io": "2.1.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AndrewLozychenko/Cryptochat.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AndrewLozychenko/Cryptochat/issues"
+  },
+  "homepage": "https://github.com/AndrewLozychenko/Cryptochat#readme"
+}
