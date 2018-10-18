@@ -1,7 +1,7 @@
 var server = require('http').createServer();
 var io = require('socket.io')(server);
 
-server.listen(8080);
+server.listen(process.env.PORT || 8080);
 console.log('Server on');
 
 var users;
@@ -11,25 +11,14 @@ io.on('connection', (socket) =>
 {
     console.log("Someone connected");
     socket.emit('connected', {});
-    users[socket] = {'id':id,name:"Nobody",'socket':socket};
+    users[socket] = {'id':id,'socket':socket};
     id++;
-
-    socket.on('rename', function(data)
-    {
-        users[socket].name = data.name;
-    });
-
-    socket.on('getUsersList', function(data)
-    {
-        socket.emit('usersList',{'users':users});
-    });
 
     socket.on('message', function(data)
     {
         for(var i in users)
         { 
-            if(data.name == i.name)
-                i.socket.emit('message',{message:data.message});
+			i.socket.emit('message',{message:data.message});
         }
     });
 });								
