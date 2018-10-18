@@ -1,8 +1,16 @@
 var server = require('http').createServer();
 var io = require('socket.io')(server);
+var express = require('express');
+var app = express();
 
 server.listen(process.env.PORT || 8080);
 console.log('Server on');
+
+app.use(express.static(__dirname));
+
+app.get("/",function(req,res){
+	res.render("test");
+});
 
 var users;
 var id = 0;
