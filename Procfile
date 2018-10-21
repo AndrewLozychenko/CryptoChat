@@ -1,1 +1,1 @@
-web: test.html
+web: node core.js

@@ -6,7 +6,7 @@ var app = express();
 server.listen(process.env.PORT || 8080);
 console.log('Server on');
 
-app.use(express.static(__dirname));
+app.use(express.static(__dirname + "/public"));
 
 app.get("/",function(req,res){
 	res.render("test");
